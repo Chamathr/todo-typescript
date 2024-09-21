@@ -10,11 +10,16 @@ h1 {
     color: #333;
 }
 
+.todo-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
 input[type="text"] {
-    width: 50%;
     padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -26,7 +31,6 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-left: 5px;
     min-width: 100px;
     background-color: #28a745;
 }
@@ -39,16 +43,17 @@ button.complete {
     background-color: #007bff;
 }
 
-button.complete:hover {
-    background-color: #0056b3;
-}
-
 button.delete {
     background-color: #dc3545;
 }
 
 button.delete:hover {
     background-color: #c82333;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 ul {
@@ -67,13 +72,9 @@ li {
     align-items: center;
 }
 
-li.completed {
+li.completed span {
     text-decoration: line-through;
     color: #888;
-}
-
-li.completed > div {
-    opacity: 0.6; /* Slightly fade completed items */
 }
 
 li:hover {
@@ -82,15 +83,20 @@ li:hover {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .todo-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     input[type="text"] {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
     }
 
     button {
-        width: 100%; /* Full width on mobile */
-        margin-top: 5px; /* Space above button */
-        margin-left: 0; /* No left margin */
+        width: 100%;
+        margin-top: 5px;
     }
 
     li {
@@ -102,7 +108,7 @@ li:hover {
         text-align: left;
     }
 
-    li > div {
+    li>div {
         display: flex;
         justify-content: flex-start;
         width: 100%;
@@ -111,6 +117,6 @@ li:hover {
     }
 
     li button {
-        flex: 1; 
+        flex: 1;
     }
 }
