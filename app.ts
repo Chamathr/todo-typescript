@@ -73,11 +73,13 @@ function renderTodos(): void {
   todos.forEach((todo) => {
     const li = document.createElement("li");
     li.className = todo.completed ? "completed" : "";
-    li.innerHTML = `
-              ${todo.title}
-              <button onclick="completeTodo(${todo.id})">Complete</button>
-              <button onclick="deleteTodo(${todo.id})">Delete</button>
-          `;
+    li.innerHTML =
+    `${todo.title}
+    <div>
+      <button class="complete" onclick="completeTodo(${todo.id})">Complete</button>
+      <button class="delete" onclick="deleteTodo(${todo.id})">Delete</button>
+    </div>
+    `;
     todoList.appendChild(li);
   });
 }
